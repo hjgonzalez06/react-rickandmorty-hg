@@ -40,3 +40,83 @@ export interface Action {
     type: string,
     payload: any
 }
+
+interface Status {
+    loading: boolean,
+    error?: string
+}
+
+export type GeneralCard = {
+    type: string,
+    characters: Status,
+    locations: Status,
+    episodes: Status
+}
+
+export type CharactersGeneralCard = {
+    characters: Characters[],
+    show: boolean,
+    setShow: (show: boolean) => void
+}
+
+export type LocationsGeneralCard = {
+    locations: Locations[],
+    show: boolean,
+    setShow: (show: boolean) => void
+}
+
+export type EpisodesGeneralCard = {
+    episodes: Episodes[],
+    show: boolean,
+    setShow: (show: boolean) => void
+}
+
+export type DetailedCard = {
+    type: string,
+    characters?: Status,
+    locations?: Status,
+    episodes?: Status,
+    show: boolean,
+    setShow: (show: boolean) => void
+}
+
+export type DetailedCharacter = {
+    character: Characters
+}
+
+export type DetailedLocation = {
+    location: Locations
+}
+
+export type DetailedEpisode = {
+    episode: Episodes
+}
+
+
+
+export type State = {
+    characters: {
+        fetching: boolean,
+        data: Characters[],
+        current: object,
+        nextPage: number,
+        pages: number,
+        error?: string
+    }
+    locations: {
+        fetching: boolean,
+        data: Locations[],
+        current: object,
+        nextPage: number,
+        pages: number,
+        error?: string
+    }
+    episodes: {
+        fetching: boolean,
+        data: Episodes[],
+        current: object,
+        nextPage: number,
+        pages: number,
+        error?: string
+    }
+}

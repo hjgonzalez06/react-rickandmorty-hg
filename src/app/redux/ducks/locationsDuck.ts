@@ -78,10 +78,10 @@ export let getLocationsAction = () => (dispatch: any, getState: any) => {
             type: GET_LOCATIONS_SUCCESS,
             payload: data.locations
         });
-        dispatch({
+        /* dispatch({
             type: UPDATE_PAGE,
             payload: data.locations.info.next ? data.locations.info.next : 1
-        });
+        }); */
     });
 
 };

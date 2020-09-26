@@ -76,10 +76,10 @@ export let getCharactersAction = () => (dispatch: any, getState: any) => {
             type: GET_CHARACTERS_SUCCESS,
             payload: data.characters
         });
-        dispatch({
+        /* dispatch({
             type: UPDATE_PAGE,
             payload: data.characters.info.next ? data.characters.info.next : 1
-        });
+        }); */
     });
 
 };

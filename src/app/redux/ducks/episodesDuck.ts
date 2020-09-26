@@ -78,10 +78,10 @@ export let getEpisodesAction = () => (dispatch: any, getState: any) => {
             type: GET_EPISODES_SUCCESS,
             payload: data.episodes
         });
-        dispatch({
+        /* dispatch({
             type: UPDATE_PAGE,
             payload: data.episodes.info.next ? data.episodes.info.next : 1
-        });
+        }); */
     });
 
 };
