@@ -1,0 +1,15 @@
+.card {
+    background-color: #EFEFEF !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px !important;
+}
+
+.show {
+    background-color: transparent !important;
+    border-radius: 20px !important;
+    border-color: #32DE8A !important;
+    border-width: 2.5px !important;
+}
+
+.show:hover {
+    background-color: #32DE8A !important;
+}

@@ -55,8 +55,8 @@ export type GeneralCard = {
 
 export type CharactersGeneralCard = {
     characters: Characters[],
-    show: boolean,
-    setShow: (show: boolean) => void
+    /* show: boolean,
+    setShow: (show: boolean) => void */
 }
 
 export type LocationsGeneralCard = {
