@@ -1,0 +1,18 @@
+.footer {
+    background-color: #A9A9A9;
+}
+
+.copyright {
+    color: #FFFFFF;
+}
+
+.copyright a {
+    text-decoration: underline;
+    text-decoration-color: #32DE8A;
+    color: #FFFFFF;
+}
+
+.copyright a:hover {
+    color: #32DE8A;
+    text-decoration: none;
+}
