@@ -4,6 +4,7 @@ import { Container, Row } from 'react-bootstrap';
 // import { connect } from 'react-thunk';
 import Footer from './components/footer/Footer';
 import GeneralCards from './components/cards/GeneralCards';
+import Header from './components/header/Header';
 
 function App(){
 
@@ -12,6 +13,8 @@ function App(){
         <>
 
             <div className="d-flex flex-column min-vh-100">
+
+                <Header />
 
                 <main className="d-inline-flex mt-5 overflow-auto">
 
