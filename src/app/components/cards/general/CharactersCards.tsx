@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Card, Button, Col } from 'react-bootstrap';
 import { Characters, CharactersGeneralCard, State } from '../../../../types';
 import Style from './cards.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 function CharactersCards({ characters }: CharactersGeneralCard): JSX.Element{
 
@@ -28,7 +30,7 @@ function CharactersCards({ characters }: CharactersGeneralCard): JSX.Element{
                                 </Card.Title>
                                 <div className="btn-block d-flex justify-content-center">
                                     <Button className={Style.show} onClick={() => showModal(character)}>
-                                        More
+                                        <FontAwesomeIcon icon={faPlus} />
                                     </Button>
                                 </div>
                             </Card.Body>
