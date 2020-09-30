@@ -10,7 +10,7 @@ function GeneralCards({ type, characters, locations, episodes }: GeneralCard){
 
         switch(type){
             case 'Characters':
-                return <Characters />;
+                return <Characters />
             case 'Locations':
                 return ;
             case 'Episodes':

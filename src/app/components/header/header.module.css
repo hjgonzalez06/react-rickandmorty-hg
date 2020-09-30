@@ -1,3 +1,34 @@
 .navbar {
     background-color: #32DE8A !important;
 }
+
+.ySpaceBar {
+    font-size: 25px;
+}
+
+.wiki {
+    font-size: 20px;
+}
+
+.buttonsRow {
+    background-color: #A9A9A9 !important;
+}
+
+.options {
+    background-color: transparent !important;
+    border-color: #32DE8A !important;
+    border-radius: 5px !important;
+    color: #000000 !important;
+}
+
+.options:hover {
+    background-color: #32DE8A !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+
+.active {
+    background-color: #32DE8A !important;
+    color: #000000 !important;
+    font-weight: bolder !important;
+}
