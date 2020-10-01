@@ -20,7 +20,9 @@ function App(){
 
                     <Container>
                         <Row>
-                            <Route exact path="/" render={() => <GeneralCards type={`Characters`} />} />                        
+                            <Route exact path="/" render={() => <GeneralCards type={`Characters`} />} />
+                            <Route exact path="/locations" render={() => <GeneralCards type={`Locations`} />} />
+                            <Route exact path="/episodes" render={() => <GeneralCards type={`Episodes`} />} />
                         </Row>
                     </Container>
 

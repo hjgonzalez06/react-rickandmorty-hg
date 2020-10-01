@@ -10,29 +10,29 @@ const initialData: Data = {
     pages: 1
 };
 
+const CHANGE_PAGE = "CHANGE_PAGE";
 const GET_EPISODES = "GET_EPISODES";
 const GET_EPISODES_SUCCESS = "GET_EPISODES_SUCCESS";
 const GET_EPISODES_ERROR = "GET_EPISODES_ERROR";
-const UPDATE_PAGE = "UPDATE_PAGE";
 
 export default function reducer(state = initialData, action: Action){
 
     switch(action.type){
+        case CHANGE_PAGE:
+            return {...state, nextPage: action.payload};
         case GET_EPISODES:
             return {...state, fetching: true};
         case GET_EPISODES_ERROR:
             return {...state, fetching: false, error: action.payload};
         case GET_EPISODES_SUCCESS:
-            return {...state, fetching: false, data: action.payload.results, pages: action.payload.info.pages, error: null }
-        case UPDATE_PAGE:
-            return {};
+            return {...state, fetching: false, data: action.payload.results, pages: action.payload.info.pages, error: null };
         default:
             return state;
     }
 
 }
 
-export let getEpisodesAction = () => (dispatch: any, getState: any) => {
+export let getEpisodesAction = (changePage?: boolean) => (dispatch: any, getState: any) => {
 
     let query = gql`
         query ($page: Int){
@@ -78,10 +78,23 @@ export let getEpisodesAction = () => (dispatch: any, getState: any) => {
             type: GET_EPISODES_SUCCESS,
             payload: data.episodes
         });
-        /* dispatch({
-            type: UPDATE_PAGE,
-            payload: data.episodes.info.next ? data.episodes.info.next : 1
-        }); */
+        if (changePage) {
+            dispatch({
+                type: CHANGE_PAGE,
+                payload: data.episodes.info.next ? data.episodes.info.next : 1
+            });
+        };
     });
+
+};
+
+export let changePageAction = (page: number) => (dispatch: any, getState: any) => {
+
+    dispatch({
+        type: CHANGE_PAGE,
+        payload: page
+    });
+
+    getEpisodesAction(true)(dispatch,getState);
 
 };

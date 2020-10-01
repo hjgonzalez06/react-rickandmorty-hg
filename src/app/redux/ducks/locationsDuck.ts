@@ -10,29 +10,29 @@ const initialData: Data = {
     pages: 1
 }
 
+const CHANGE_PAGE = "CHANGE_PAGE";
 const GET_LOCATIONS = "GET_LOCATIONS";
 const GET_LOCATIONS_ERROR = "GET_LOCATIONS_ERROR";
 const GET_LOCATIONS_SUCCESS = "GET_LOCATIONS_SUCCESS";
-const UPDATE_PAGE = "UPDATE_PAGE";
 
 export default function reducer(state = initialData, action: Action){
 
     switch(action.type){
+        case CHANGE_PAGE:
+            return {...state, nextPage: action.payload};
         case GET_LOCATIONS:
             return {...state, fetching: true};
         case GET_LOCATIONS_ERROR:
             return {...state, fetching: false, error: action.payload};
         case GET_LOCATIONS_SUCCESS:
-            return {...state, fetching: false, data: action.payload.results, pages: action.payload.info.pages, error: null }
-        case UPDATE_PAGE:
-            return {};
+            return {...state, fetching: false, data: action.payload.results, pages: action.payload.info.pages, error: null };
         default:
             return state;
     }
 
 }
 
-export let getLocationsAction = () => (dispatch: any, getState: any) => {
+export let getLocationsAction = (changePage?: boolean) => (dispatch: any, getState: any) => {
 
     let query = gql`
         query ($page: Int){
@@ -78,10 +78,23 @@ export let getLocationsAction = () => (dispatch: any, getState: any) => {
             type: GET_LOCATIONS_SUCCESS,
             payload: data.locations
         });
-        /* dispatch({
-            type: UPDATE_PAGE,
-            payload: data.locations.info.next ? data.locations.info.next : 1
-        }); */
+        if (changePage) {
+            dispatch({
+                type: CHANGE_PAGE,
+                payload: data.locations.info.next ? data.locations.info.next : 1
+            });
+        };
     });
+
+};
+
+export let changePageAction = (page: number) => (dispatch: any, getState: any) => {
+
+    dispatch({
+        type: CHANGE_PAGE,
+        payload: page
+    });
+
+    getLocationsAction(true)(dispatch,getState);
 
 };

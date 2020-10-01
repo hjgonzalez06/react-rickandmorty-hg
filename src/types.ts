@@ -41,6 +41,10 @@ export interface Action {
     payload: any
 }
 
+export interface Path {
+    current: string
+}
+
 interface Status {
     loading: boolean,
     error?: string
@@ -92,9 +96,10 @@ export type DetailedEpisode = {
     episode: Episodes
 }
 
-
-
 export type State = {
+    path: {
+        current: string
+    },
     characters: {
         fetching: boolean,
         data: Characters[],
