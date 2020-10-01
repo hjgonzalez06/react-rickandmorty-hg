@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Col, Spinner } from 'react-bootstrap';
 import { GeneralCard, State } from '../../../types';
 import Characters from './general/CharactersCards';
+import Locations from './general/LocationsCards';
+import Episodes from './general/EpisodesCards';
 
 function GeneralCards({ type, characters, locations, episodes }: GeneralCard){
 
@@ -10,11 +12,11 @@ function GeneralCards({ type, characters, locations, episodes }: GeneralCard){
 
         switch(type){
             case 'Characters':
-                return <Characters />
+                return <Characters />;
             case 'Locations':
-                return ;
+                return <Locations />;
             case 'Episodes':
-                return ;
+                return <Episodes />;
         };
 
     };
@@ -23,11 +25,11 @@ function GeneralCards({ type, characters, locations, episodes }: GeneralCard){
 
         switch(type){
             case 'Characters':
-                return ;
+                return 
             case 'Locations':
-                return ;
+                return 
             case 'Episodes':
-                return ;
+                return 
         };
 
     };
@@ -36,11 +38,11 @@ function GeneralCards({ type, characters, locations, episodes }: GeneralCard){
 
         switch(type){
             case 'Characters':
-                return ;
+                return 
             case 'Locations':
-                return ;
+                return 
             case 'Episodes':
-                return ;
+                return 
         };
 
     };

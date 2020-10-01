@@ -65,14 +65,14 @@ export type CharactersGeneralCard = {
 
 export type LocationsGeneralCard = {
     locations: Locations[],
-    show: boolean,
-    setShow: (show: boolean) => void
+    /* show: boolean,
+    setShow: (show: boolean) => void */
 }
 
 export type EpisodesGeneralCard = {
     episodes: Episodes[],
-    show: boolean,
-    setShow: (show: boolean) => void
+    /* show: boolean,
+    setShow: (show: boolean) => void */
 }
 
 export type DetailedCard = {
@@ -94,6 +94,11 @@ export type DetailedLocation = {
 
 export type DetailedEpisode = {
     episode: Episodes
+}
+
+export type NavButtons = {
+    location?: string,
+    setLocationAction?: (location: string) => void
 }
 
 export type State = {
