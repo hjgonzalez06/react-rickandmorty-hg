@@ -2,6 +2,8 @@ import React, { Fragment, useState} from 'react';
 import { connect } from 'react-redux';
 import { Card, Button, Col } from 'react-bootstrap';
 import { Characters, CharactersGeneralCard, State } from '../../../../types';
+import DetailedCards from '../DetailedCards';
+import { DefaultCharacter } from '../../../../defaultObjects';
 import Style from './cards.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -9,10 +11,15 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 function CharactersCards({ characters }: CharactersGeneralCard): JSX.Element{
 
     let [show, setShow] =  useState(false);
-    /* let [currentCharacter, setCurrentCharacter] = useState(); */
+    let [character, setCharacter] = useState(DefaultCharacter);
+    const type = "Character";
+
+    function renderModal() {
+        return show ? DetailedCards({type,character,show,setShow}) : null;
+    }
 
     function showModal(character?: Characters){
-        /* setCurrentCharacter(character!); */
+        setCharacter(character!);
         setShow(!show);
     }
 
@@ -39,7 +46,7 @@ function CharactersCards({ characters }: CharactersGeneralCard): JSX.Element{
                 </Fragment>
             )}
 
-            
+            {renderModal()}
 
         </>
     )

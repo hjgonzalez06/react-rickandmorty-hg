@@ -75,25 +75,31 @@ export type EpisodesGeneralCard = {
     setShow: (show: boolean) => void */
 }
 
-export type DetailedCard = {
+export type DetailedModals = {
     type: string,
-    characters?: Status,
-    locations?: Status,
-    episodes?: Status,
+    character?: Characters,
+    location?: Locations,
+    episode?: Episodes,
     show: boolean,
     setShow: (show: boolean) => void
 }
 
 export type DetailedCharacter = {
-    character: Characters
+    character: Characters,
+    show: boolean,
+    setShow: (show: boolean) => void
 }
 
 export type DetailedLocation = {
-    location: Locations
+    location: Locations,
+    show: boolean,
+    setShow: (show: boolean) => void
 }
 
 export type DetailedEpisode = {
-    episode: Episodes
+    episode: Episodes,
+    show: boolean,
+    setShow: (show: boolean) => void
 }
 
 export type NavButtons = {
