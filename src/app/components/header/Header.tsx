@@ -65,19 +65,19 @@ function Header({ location, setLocationAction }: NavButtons) {
                 
                 <Link to="/" className="mx-2 mx-md-5 text-decoration-none">
                     <Button className={location === CHARACTERS ? `${Style.active}` : `${Style.options}`}
-                            onClick={() => setLocationAction!("Characters")}>
+                            onClick={() => setLocationAction!(CHARACTERS)}>
                         Characters
                     </Button>
                 </Link>
                 <Link to="/locations" className="mx-2 mx-md-5 text-decoration-none">
                     <Button className={location === LOCATIONS ? `${Style.active}` : `${Style.options}`}
-                            onClick={() => setLocationAction!("Locations")}>
+                            onClick={() => setLocationAction!(LOCATIONS)}>
                         Locations
                     </Button>
                 </Link>
                 <Link to="/episodes" className="mx-2 mx-md-5 text-decoration-none">
                     <Button className={location === EPISODES ? `${Style.active}` : `${Style.options}`}
-                            onClick={() => setLocationAction!("Episodes")}>
+                            onClick={() => setLocationAction!(EPISODES)}>
                         Episodes
                     </Button>
                 </Link>
@@ -93,7 +93,7 @@ function Header({ location, setLocationAction }: NavButtons) {
 function mapStateToProps(state: State){
 
     return {
-        location: state.path.current
+        location: state.page.current
     }
 
 };

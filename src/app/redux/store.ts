@@ -1,7 +1,7 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 // Ducks
-// import appDuck from './ducks/appDuck';
+import pagesDuck from './ducks/pagesDuck';
 import charactersDuck, { getCharactersAction } from './ducks/charactersDuck';
 import locationsDuck, { getLocationsAction } from './ducks/locationsDuck';
 import episodesDuck, { getEpisodesAction } from './ducks/episodesDuck';
@@ -14,7 +14,7 @@ declare global {
 };
 
 let rootReducers = combineReducers({
-    // app: appDuck,
+    page: pagesDuck,
     characters: charactersDuck,
     locations: locationsDuck,
     episodes: episodesDuck

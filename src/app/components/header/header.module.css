@@ -29,6 +29,7 @@
 
 .active {
     background-color: #32DE8A !important;
+    border-color: #32DE8A !important;
     color: #000000 !important;
     font-weight: bolder !important;
 }

@@ -102,7 +102,7 @@ export type NavButtons = {
 }
 
 export type State = {
-    path: {
+    page: {
         current: string
     },
     characters: {

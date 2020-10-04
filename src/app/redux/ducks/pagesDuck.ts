@@ -5,7 +5,7 @@ import { changePageAction as changeEpsPage } from './episodesDuck';
 
 function getCurrentPath() {
 
-    let path: string = window.location.pathname.replace("/","");
+    let path: string = window.location.pathname.replace("/", "");
 
     return path === "" ? "Characters" : path.charAt(0).toUpperCase() + path.slice(1);
 
@@ -39,6 +39,7 @@ export let setLocationAction = (location: string) => (dispatch: any, getState: a
         payload: location
     });
 
+    setPageAction(location)(dispatch, getState);
 
 };
 
