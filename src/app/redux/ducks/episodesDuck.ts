@@ -43,6 +43,7 @@ export let getEpisodesAction = (changePage?: boolean) => (dispatch: any, getStat
                     air_date,
                     episode,
                     characters{
+                        id,
                         name,
                         image
                     }

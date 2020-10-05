@@ -1,8 +1,8 @@
 import React from 'react';
 import { DetailedModals } from '../../../types';
 import CharacterModal from './detailed/CharacterModal';
-/* import LocationModal from './detailed/LocationModal';
-import EpisodeModal from './general/EpisodeModal'; */
+import LocationModal from './detailed/LocationModal';
+import EpisodeModal from './detailed/EpisodeModal';
 
 function DetailedCards({ type, character, location, episode, show, setShow }: DetailedModals){
 
@@ -10,9 +10,9 @@ function DetailedCards({ type, character, location, episode, show, setShow }: De
         case 'Character':
             return <CharacterModal character={character!} show={show} setShow={setShow} />;
         case 'Location':
-            return ;
+            return <LocationModal location={location!} show={show} setShow={setShow} />;
         case 'Episode':
-            return ;
+            return <EpisodeModal episode={episode!} show={show} setShow={setShow} />;
     };
 
 };
