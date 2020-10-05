@@ -24,6 +24,7 @@ export interface Episodes {
 }
 
 export interface Residents {
+    id: number,
     name: string,
     image?: string
 }

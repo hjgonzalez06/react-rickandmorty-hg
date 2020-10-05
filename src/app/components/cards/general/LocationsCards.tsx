@@ -2,6 +2,8 @@ import React, { Fragment, useState} from 'react';
 import { connect } from 'react-redux';
 import { Card, Button, Col } from 'react-bootstrap';
 import { Locations, LocationsGeneralCard, State } from '../../../../types';
+import DetailedCards from '../DetailedCards';
+import { DefaultLocation } from '../../../../defaultObjects';
 import Style from './cards.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -9,10 +11,15 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 function LocationsCards({ locations }: LocationsGeneralCard): JSX.Element{
 
     let [show, setShow] =  useState(false);
-    /* let [currentLocation, setCurrentLocation] = useState(); */
+    let [location, setLocation] = useState(DefaultLocation);
+    const type = "Location";
+
+    function renderModal() {
+        return show ? DetailedCards({type,location,show,setShow}) : null;
+    }
 
     function showModal(location?: Locations){
-        /* setCurrentLocation(location!); */
+        setLocation(location!);
         setShow(!show);
     }
 
@@ -23,7 +30,7 @@ function LocationsCards({ locations }: LocationsGeneralCard): JSX.Element{
                 <Fragment key={location.id}>
                     <Col xs={12} md={6} lg={4} xl={3} className={`mb-4`}>
                         <Card className={Style.card}>
-                            <Card.Header className={`text-center text-bolder`}>{location.name}</Card.Header>
+                            <Card.Header className={`text-center font-weight-bolder`}>{location.name}</Card.Header>
                             <Card.Body>
                                 <Card.Subtitle className={`text-center`}>
                                     {location.type}
@@ -39,7 +46,7 @@ function LocationsCards({ locations }: LocationsGeneralCard): JSX.Element{
                 </Fragment>
             )}
 
-            
+            {renderModal()}
 
         </>
     )

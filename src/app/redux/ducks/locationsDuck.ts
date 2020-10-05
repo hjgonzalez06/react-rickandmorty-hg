@@ -43,6 +43,7 @@ export let getLocationsAction = (changePage?: boolean) => (dispatch: any, getSta
                     type,
                     dimension,
                     residents{
+                        id,
                         name,
                         image
                     }

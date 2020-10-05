@@ -10,6 +10,7 @@ export const DefaultCharacter: Characters = {
 };
 
 const DefaultResidents: Residents[] = [{
+    id: 0,
     name: "",
     image: ""
 }];
