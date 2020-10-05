@@ -32,7 +32,7 @@ function CharactersCards({ characters }: CharactersGeneralCard): JSX.Element{
                         <Card className={Style.card}>
                             <Card.Img variant="top" src={character.image} />
                             <Card.Body>
-                                <Card.Title className={`text-center text-bolder`}>
+                                <Card.Title className={`text-center font-weight-bolder`}>
                                     {character.name}
                                 </Card.Title>
                                 <div className="btn-block d-flex justify-content-center">
