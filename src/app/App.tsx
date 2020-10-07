@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Container, Row } from 'react-bootstrap';
 import Header from './components/header/Header';
 import GeneralCards from './components/cards/GeneralCards';
+import PaginationBar from './components/pagination/PaginationBar';
 import Footer from './components/footer/Footer';
 
 function App(){
@@ -28,6 +29,12 @@ function App(){
                     </Container>
 
                 </main>
+
+                <section className="mt-auto">
+
+                    <PaginationBar />
+
+                </section>
 
                 <Footer />
 
