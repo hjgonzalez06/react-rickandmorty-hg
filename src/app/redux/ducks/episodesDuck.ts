@@ -117,6 +117,7 @@ export let searchEpisodesAction = (word: string, filter: string) => (dispatch: a
                     }
                 }
             `;
+            break;
         case "Episode":
             query = gql `
                 query ($word: String, $page: Int){
@@ -140,6 +141,7 @@ export let searchEpisodesAction = (word: string, filter: string) => (dispatch: a
                     }
                 }
             `;
+            break;
     };
 
     const { nextPage } = getState().episodes;

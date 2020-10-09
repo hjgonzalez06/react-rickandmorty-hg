@@ -117,6 +117,7 @@ export let searchLocationsAction = (word: string, filter: string) => (dispatch: 
                     }
                 }
             `;
+            break;
         case "Type":
             query = gql `
                 query ($word: String, $page: Int){
@@ -140,6 +141,7 @@ export let searchLocationsAction = (word: string, filter: string) => (dispatch: 
                     }
                 }
             `;
+            break;
     };
 
     const { nextPage } = getState().locations;

@@ -111,6 +111,7 @@ export let searchCharactersAction = (word: string, filter: string) => (dispatch:
                     }
                 }
             `;
+            break;
         case "Type":
             query = gql `
                 query ($word: String, $page: Int){
@@ -131,6 +132,7 @@ export let searchCharactersAction = (word: string, filter: string) => (dispatch:
                     }
                 }
             `;
+            break;
     };
 
     const { nextPage } = getState().characters;

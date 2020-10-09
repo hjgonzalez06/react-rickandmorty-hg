@@ -6,7 +6,7 @@ import { SearcherProps, State } from '../../../types';
 import {searchCharactersAction as searchCharacters} from '../../redux/ducks/charactersDuck';
 import {searchLocationsAction as searchLocations} from '../../redux/ducks/locationsDuck';
 import {searchEpisodesAction as searchEpisodes} from '../../redux/ducks/episodesDuck';
-import Style from './header.module.css';
+/* import Style from './header.module.css'; */
 
 function Searcher({ location, searchCharacters, searchLocations, searchEpisodes }: SearcherProps): JSX.Element {
 
@@ -15,7 +15,7 @@ function Searcher({ location, searchCharacters, searchLocations, searchEpisodes 
     const EPISODE = "Episode";
     let [wordToSearch, setWordToSearch] = useState<string>("");
     let [filter, setFilter] = useState<string>(NAME);
-    const rgxLettersAndSpaces = /^[a-zA-Z][a-zA-Z0-9]*(?: [a-Az-Z0-9]+)?$/;
+    const rgxLettersAndSpaces = /^[a-zA-Z][a-zA-Z0-9]*(?: [a-zA-Z0-9]+)?$/;
     const rgxEmpty = /^$/;
 
     let validateInput = (value: string): boolean => value.length >=3 && rgxLettersAndSpaces.test(value);
