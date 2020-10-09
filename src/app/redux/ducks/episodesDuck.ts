@@ -89,6 +89,92 @@ export let getEpisodesAction = (changePage?: boolean) => (dispatch: any, getStat
 
 };
 
+export let searchEpisodesAction = (word: string, filter: string) => (dispatch: any, getState: any) => {
+
+    let query: any;
+    
+    switch (filter) {
+        case "Name":
+            query = gql `
+                query ($word: String, $page: Int){
+                    characters (filter: {name: $word}, page: $page){
+                        results{
+                            id,
+                            name,
+                            air_date,
+                            episode,
+                            characters{
+                                id,
+                                name,
+                                image
+                            }
+                        }
+                        info{
+                            pages,
+                            prev,
+                            next
+                        }
+                    }
+                }
+            `;
+        case "Episode":
+            query = gql `
+                query ($word: String, $page: Int){
+                    characters (filter: {episode: $word}, page: $page){
+                        results{
+                            id,
+                            name,
+                            air_date,
+                            episode,
+                            characters{
+                                id,
+                                name,
+                                image
+                            }
+                        }
+                        info{
+                            pages,
+                            prev,
+                            next
+                        }
+                    }
+                }
+            `;
+    };
+
+    const { nextPage } = getState().episodes;
+
+    dispatch({
+        type: GET_EPISODES
+    });
+
+    return client.query({
+        query,
+        variables: {
+            word,
+            page: nextPage
+        }
+    })
+    .then( ({data, error}) => {
+        if (error) {
+            dispatch({
+                type: GET_EPISODES_ERROR,
+                payload: error
+            });
+            return;
+        };
+        dispatch({
+            type: GET_EPISODES_SUCCESS,
+            payload: data.episodes
+        });
+        dispatch({
+            type: CHANGE_PAGE,
+            payload: data.episodes.info.next ? data.episodes.info.next : 1
+        });
+    });
+
+};
+
 export let changePageAction = (page: number) => (dispatch: any, getState: any) => {
 
     dispatch({

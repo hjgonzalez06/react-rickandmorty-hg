@@ -109,6 +109,13 @@ export type PaginationProps = {
     setPageAction: (type: string, page?: number) => void
 }
 
+export type SearcherProps = {
+    location: string,
+    searchCharacters: (word: string, filter: string) => void,
+    searchLocations: (word: string, filter: string) => void,
+    searchEpisodes: (word: string, filter: string) => void,
+}
+
 export type State = {
     page: {
         current: string

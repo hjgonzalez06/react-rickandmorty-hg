@@ -89,6 +89,92 @@ export let getLocationsAction = (changePage?: boolean) => (dispatch: any, getSta
 
 };
 
+export let searchLocationsAction = (word: string, filter: string) => (dispatch: any, getState: any) => {
+
+    let query: any;
+    
+    switch (filter) {
+        case "Name":
+            query = gql `
+                query ($word: String, $page: Int){
+                    locations (filter: {name: $word}, page: $page){
+                        results{
+                            id,
+                            name,
+                            type,
+                            dimension,
+                            residents{
+                                id,
+                                name,
+                                image
+                            }
+                        }
+                        info{
+                            pages,
+                            prev,
+                            next
+                        }
+                    }
+                }
+            `;
+        case "Type":
+            query = gql `
+                query ($word: String, $page: Int){
+                    locations (filter: {type: $word}, page: $page){
+                        results{
+                            id,
+                            name,
+                            type,
+                            dimension,
+                            residents{
+                                id,
+                                name,
+                                image
+                            }
+                        }
+                        info{
+                            pages,
+                            prev,
+                            next
+                        }
+                    }
+                }
+            `;
+    };
+
+    const { nextPage } = getState().locations;
+
+    dispatch({
+        type: GET_LOCATIONS
+    });
+
+    return client.query({
+        query,
+        variables: {
+            word,
+            page: nextPage
+        }
+    })
+    .then( ({data, error}) => {
+        if (error) {
+            dispatch({
+                type: GET_LOCATIONS_ERROR,
+                payload: error
+            });
+            return;
+        };
+        dispatch({
+            type: GET_LOCATIONS_SUCCESS,
+            payload: data.locations
+        });
+        dispatch({
+            type: CHANGE_PAGE,
+            payload: data.locations.info.next ? data.locations.info.next : 1
+        });
+    });
+
+};
+
 export let changePageAction = (page: number) => (dispatch: any, getState: any) => {
 
     dispatch({
