@@ -33,3 +33,7 @@
     color: #000000 !important;
     font-weight: bolder !important;
 }
+
+.dropdownActive {
+    background-color: #32DE8A !important;
+}

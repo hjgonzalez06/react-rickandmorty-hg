@@ -6,7 +6,7 @@ import { SearcherProps, State } from '../../../types';
 import {searchCharactersAction as searchCharacters} from '../../redux/ducks/charactersDuck';
 import {searchLocationsAction as searchLocations} from '../../redux/ducks/locationsDuck';
 import {searchEpisodesAction as searchEpisodes} from '../../redux/ducks/episodesDuck';
-/* import Style from './header.module.css'; */
+import Style from './header.module.css';
 
 function Searcher({ location, searchCharacters, searchLocations, searchEpisodes }: SearcherProps): JSX.Element {
 
@@ -26,9 +26,9 @@ function Searcher({ location, searchCharacters, searchLocations, searchEpisodes 
 
             reset();
 
-        }
+        };
 
-    }
+    };
 
     let getWords = ({target}: React.ChangeEvent<HTMLInputElement>) => {
 
@@ -36,10 +36,12 @@ function Searcher({ location, searchCharacters, searchLocations, searchEpisodes 
         searchAction(target.value);
         validateEmpty(target.value);
 
-    }
+    };
 
     let searchAction = (wordToSearch: string): void => {
+
         if (validateInput(wordToSearch)) {
+
             switch(location){
                 case "Characters":
                     searchCharacters(wordToSearch, filter);
@@ -50,16 +52,18 @@ function Searcher({ location, searchCharacters, searchLocations, searchEpisodes 
                 case "Episodes":
                     searchEpisodes(wordToSearch, filter);
                     break;
-            }
-        }
-    }
+            };
+
+        };
+
+    };
 
     let reset = (): void => {
 
         setWordToSearch("");
         window.location.reload();
 
-    }
+    };
 
     let renderFilters = (): JSX.Element => {
 
@@ -67,12 +71,13 @@ function Searcher({ location, searchCharacters, searchLocations, searchEpisodes 
             case "Episodes":
                 return (
                     <>
-                        <Dropdown.Item href="#" className={ filter === NAME ? "active" : "" }>
+                        <Dropdown.Item href="#" onClick={() => setFilter(NAME)}
+                                       className={ filter === NAME ? `${Style.dropdownActive}` : "" }>
                             Name
                         </Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item href="#" onClick={() => setFilter(EPISODE)}
-                                       className={ filter === EPISODE ? "active" : "" }>
+                                       className={ filter === EPISODE ? `${Style.dropdownActive}` : "" }>
                             Episode
                         </Dropdown.Item>
                     </>
@@ -80,17 +85,18 @@ function Searcher({ location, searchCharacters, searchLocations, searchEpisodes 
             default:
                 return (
                     <>
-                        <Dropdown.Item href="#" className={ filter === NAME ? "active" : "" }>
+                        <Dropdown.Item href="#" onClick={() => setFilter(NAME)}
+                                       className={ filter === NAME ? `${Style.dropdownActive}` : "" }>
                             Name
                         </Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item href="#" onClick={() => setFilter(TYPE)}
-                                       className={ filter === TYPE ? "active" : "" }>
+                                       className={ filter === TYPE ? `${Style.dropdownActive}` : "" }>
                             Type
                         </Dropdown.Item>
                     </>
                 )
-        }
+        };
 
     };
 
@@ -134,8 +140,8 @@ function mapStateToProps(state: State) {
 
     return {
         location: state.page.current
-    }
+    };
 
-}
+};
 
 export default connect(mapStateToProps, { searchCharacters, searchLocations, searchEpisodes })(Searcher);
