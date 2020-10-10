@@ -68,7 +68,7 @@ export let getCharactersAction = (changePage?: boolean) => (dispatch: any, getSt
         if (error) {
             dispatch({
                 type: GET_CHARACTERS_ERROR,
-                payload: error
+                payload: error.message
             });
             return;
         };
@@ -82,6 +82,12 @@ export let getCharactersAction = (changePage?: boolean) => (dispatch: any, getSt
                 payload: data.characters.info.next ? data.characters.info.next : 1
             });
         };
+    })
+    .catch( e => {
+        dispatch({
+            type: GET_CHARACTERS_ERROR,
+            payload: e.message
+        });
     });
 
 };
@@ -152,7 +158,7 @@ export let searchCharactersAction = (word: string, filter: string) => (dispatch:
         if (error) {
             dispatch({
                 type: GET_CHARACTERS_ERROR,
-                payload: error
+                payload: error.message
             });
             return;
         };
@@ -163,6 +169,12 @@ export let searchCharactersAction = (word: string, filter: string) => (dispatch:
         dispatch({
             type: CHANGE_PAGE,
             payload: data.characters.info.next ? data.characters.info.next : 1
+        });
+    })
+    .catch( e => {
+        dispatch({
+            type: GET_CHARACTERS_ERROR,
+            payload: e.message
         });
     });
 

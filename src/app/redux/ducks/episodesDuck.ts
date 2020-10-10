@@ -71,7 +71,7 @@ export let getEpisodesAction = (changePage?: boolean) => (dispatch: any, getStat
         if (error) {
             dispatch({
                 type: GET_EPISODES_ERROR,
-                payload: error
+                payload: error.message
             });
             return;
         };
@@ -85,6 +85,12 @@ export let getEpisodesAction = (changePage?: boolean) => (dispatch: any, getStat
                 payload: data.episodes.info.next ? data.episodes.info.next : 1
             });
         };
+    })
+    .catch( e => {
+        dispatch({
+            type: GET_EPISODES_ERROR,
+            payload: e.message
+        });
     });
 
 };
@@ -161,7 +167,7 @@ export let searchEpisodesAction = (word: string, filter: string) => (dispatch: a
         if (error) {
             dispatch({
                 type: GET_EPISODES_ERROR,
-                payload: error
+                payload: error.message
             });
             return;
         };
@@ -172,6 +178,12 @@ export let searchEpisodesAction = (word: string, filter: string) => (dispatch: a
         dispatch({
             type: CHANGE_PAGE,
             payload: data.episodes.info.next ? data.episodes.info.next : 1
+        });
+    })
+    .catch( e => {
+        dispatch({
+            type: GET_EPISODES_ERROR,
+            payload: e.message
         });
     });
 

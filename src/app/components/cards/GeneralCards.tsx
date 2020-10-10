@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Col, Spinner } from 'react-bootstrap';
 import { GeneralCard, State } from '../../../types';
 import Characters from './general/CharactersCards';
 import Locations from './general/LocationsCards';
 import Episodes from './general/EpisodesCards';
+import Loading from '../info-pages/Loading';
+import Errors from '../info-pages/Errors';
 
 function GeneralCards({ type, characters, locations, episodes }: GeneralCard){
 
@@ -25,11 +26,11 @@ function GeneralCards({ type, characters, locations, episodes }: GeneralCard){
 
         switch(type){
             case 'Characters':
-                return 
+                return characters.loading ? <Loading /> : undefined;
             case 'Locations':
-                return 
+                return locations.loading ? <Loading /> : undefined;
             case 'Episodes':
-                return 
+                return episodes.loading ? <Loading /> : undefined;
         };
 
     };
@@ -38,11 +39,11 @@ function GeneralCards({ type, characters, locations, episodes }: GeneralCard){
 
         switch(type){
             case 'Characters':
-                return 
+                return characters.error ? <Errors message={characters.error} /> : undefined;
             case 'Locations':
-                return 
+                return locations.error ? <Errors message={locations.error} /> : undefined;
             case 'Episodes':
-                return 
+                return episodes.error ? <Errors message={episodes.error} /> : undefined;
         };
 
     };
@@ -50,7 +51,7 @@ function GeneralCards({ type, characters, locations, episodes }: GeneralCard){
     return (
 
         <>
-            {loadingCards() ? loadingCards() : loadingErrors() ? loadingErrors() : renderCards()};
+            {loadingCards() ? loadingCards() : loadingErrors() ? loadingErrors() : renderCards()}
         </>
 
     )

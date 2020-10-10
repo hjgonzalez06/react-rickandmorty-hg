@@ -113,7 +113,15 @@ export type SearcherProps = {
     location: string,
     searchCharacters: (word: string, filter: string) => void,
     searchLocations: (word: string, filter: string) => void,
-    searchEpisodes: (word: string, filter: string) => void,
+    searchEpisodes: (word: string, filter: string) => void
+}
+
+export type ErrorsProp = {
+    message: string
+}
+
+export type LoadingProp = {
+    loading: boolean
 }
 
 export type State = {

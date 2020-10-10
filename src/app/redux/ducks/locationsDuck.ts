@@ -71,7 +71,7 @@ export let getLocationsAction = (changePage?: boolean) => (dispatch: any, getSta
         if (error) {
             dispatch({
                 type: GET_LOCATIONS_ERROR,
-                payload: error
+                payload: error.message
             });
             return;
         };
@@ -85,6 +85,12 @@ export let getLocationsAction = (changePage?: boolean) => (dispatch: any, getSta
                 payload: data.locations.info.next ? data.locations.info.next : 1
             });
         };
+    })
+    .catch( e => {
+        dispatch({
+            type: GET_LOCATIONS_ERROR,
+            payload: e.message
+        });
     });
 
 };
@@ -161,7 +167,7 @@ export let searchLocationsAction = (word: string, filter: string) => (dispatch: 
         if (error) {
             dispatch({
                 type: GET_LOCATIONS_ERROR,
-                payload: error
+                payload: error.message
             });
             return;
         };
@@ -172,6 +178,12 @@ export let searchLocationsAction = (word: string, filter: string) => (dispatch: 
         dispatch({
             type: CHANGE_PAGE,
             payload: data.locations.info.next ? data.locations.info.next : 1
+        });
+    })
+    .catch( e => {
+        dispatch({
+            type: GET_LOCATIONS_ERROR,
+            payload: e.message
         });
     });
 
