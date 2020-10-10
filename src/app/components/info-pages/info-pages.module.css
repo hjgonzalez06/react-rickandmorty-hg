@@ -1,0 +1,25 @@
+.tryAgainButton{
+    background-color: transparent !important;
+    border-color: #32DE8A !important;
+    border-radius: 5px !important;
+    color: #000000 !important;
+}
+
+.tryAgainButton:hover {
+    background-color: #32DE8A !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+
+.rmSpinner {
+    animation: Logo-Spinner infinite 5s linear;
+}
+
+@keyframes Logo-Spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
