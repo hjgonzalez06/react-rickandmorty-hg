@@ -97,7 +97,7 @@ export let searchEpisodesAction = (word: string, filter: string) => (dispatch: a
         case "Name":
             query = gql `
                 query ($word: String, $page: Int){
-                    characters (filter: {name: $word}, page: $page){
+                    episodes (filter: {name: $word}, page: $page){
                         results{
                             id,
                             name,
@@ -121,7 +121,7 @@ export let searchEpisodesAction = (word: string, filter: string) => (dispatch: a
         case "Episode":
             query = gql `
                 query ($word: String, $page: Int){
-                    characters (filter: {episode: $word}, page: $page){
+                    episodes (filter: {episode: $word}, page: $page){
                         results{
                             id,
                             name,
