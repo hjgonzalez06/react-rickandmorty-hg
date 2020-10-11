@@ -42,10 +42,10 @@ A very easy to use wiki where you will find information about Rick & Morty's cha
 #### Detailed
 
 
-### Want to try it out?
+## Want to try it out?
 
 #### 1 - Clone this repo.
 #### 2 - Open the terminal.
-##### 2.1 - Run `yarn install` command.
-##### 2.2 - Run `yarn start` command.
-#### 3 - Let's enjoy!
+#### 3 - Run `yarn install` command.
+#### 4 - Run `yarn start` command.
+#### 5 - Let's enjoy!
