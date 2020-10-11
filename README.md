@@ -31,7 +31,7 @@ A very easy to use wiki where you will find information about Rick & Morty's cha
 #### General:
 ![Locations' page](captures/locations-general.jpg)
 
-#### Deatailed:
+#### Detailed:
 ![Location detailed](captures/location-detailed.jpg)
 
 ### Episodes' views:
