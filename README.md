@@ -1,6 +1,6 @@
-<div align="center"> # Rick & Morty Wiki app </div>
+# <div align="center"> Rick & Morty Wiki </div>
 
-<div align="center"> ## React - Redux - TypeScript - Apollo - GraphQL - Bootstrap </div>
+## <div align="center"> React - Redux - TypeScript - Apollo - GraphQL - Bootstrap </div>
 
 A very easy to use wiki where you will find information about Rick & Morty's characters, locations and episodes.
 
