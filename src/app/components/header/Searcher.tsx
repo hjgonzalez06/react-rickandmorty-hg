@@ -69,6 +69,7 @@ function Searcher({ location, searchCharacters, searchLocations, searchEpisodes 
 
         switch(location) {
             case "Episodes":
+                setFilter(NAME);
                 return (
                     <>
                         <Dropdown.Item href="#" onClick={() => setFilter(NAME)}
