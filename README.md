@@ -21,28 +21,28 @@ A very easy to use wiki where you will find information about Rick & Morty's cha
 ### Characters' views:
 
 #### General:
-
+![Characters' page](captures/characters-general.jpg)
 
 #### Detailed:
-
+![Character detailed](captures/character-detailed.jpg)
 
 ### Locations' views:
 
 #### General:
-
+![Locations' page](captures/locations-general.jpg)
 
 #### Deatailed:
-
+![Location detailed](captures/location-detailed.jpg)
 
 ### Episodes' views:
 
 #### General
-
+![Episodes' page](captures/episodes-general.jpg)
 
 #### Detailed
+![Episode detailed](captures/episode-detailed.jpg)
 
-
-## Want to try it out?
+## <div align="center"> Want to try it out? </div>
 
 #### 1 - Clone this repo.
 #### 2 - Open the terminal.
